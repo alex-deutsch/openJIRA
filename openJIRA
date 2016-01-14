@@ -1,0 +1,18 @@
+#!/bin/bash
+#title           :openjira.sh
+#description     :This script opens the corresponding JIRA Page of the branch's ticket
+#author			 :Alexander Deutsch
+#date            :20160114
+#version         :0.1
+
+# jira URL
+jiraURL=HTTP://YOURJIRAURL
+
+# get the string
+branch=$(git symbolic-ref --short HEAD)
+
+# manipulates Branch String and cuts everything to "/" (folders e.g. feature)
+branchM=${branch#*/}
+
+# open JIRA page
+open $jiraURL$branchM
